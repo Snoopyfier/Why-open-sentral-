@@ -1,10 +1,14 @@
 {
-    "name": "Hello World",
-    "description": "Base Level Extensions",
-    "version": "1.0",
+    "name": "Calender",
+    "description": "School Calender",
+    "version": "1.0.0",
     "manifest_version": 3,
     "action": {
         "default_popup": "index.html",
-        "default_icon": "sentral.webp"
+        "default_icon": "icon.jpg"
+    },
+    "background": {
+        "service-worker": "script.js",
+        "type": "module"
     }
 }
