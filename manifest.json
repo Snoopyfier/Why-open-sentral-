@@ -1,14 +1,21 @@
 {
+    "manifest_version": 3,
     "name": "Calender",
     "description": "School Calender",
     "version": "1.0.0",
-    "manifest_version": 3,
     "action": {
         "default_popup": "index.html",
         "default_icon": "icon.jpg"
     },
     "background": {
-        "service-worker": "script.js",
+        "service_worker": "service-worker.js",
         "type": "module"
+    },
+    "permissions": ["storage"],
+
+    "minimum_chrome_version": "102",
+    "omnibox": {
+        "keyword": "api"
     }
+
 }
