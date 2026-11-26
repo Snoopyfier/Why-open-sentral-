@@ -24,3 +24,18 @@ browser.omnibox.onInputChanged.addListener(async (input, suggest) => {
     });
     suggest(suggestions);
 });
+
+//open the referenced page for the api
+browser.omnibox.onInputEntered.addListener((input) => {
+    browser.tabs.create({ url: URL_CHROME_EXTENSIONS_DOC + input });
+    //save latest keyword
+    updateHistory(input);
+});
+
+//yes now we are defining flipping update history because why not
+async function updateHistory(input) {
+    const { apiSuggestions } = await browser.storage.local.get('apiSuggestions');
+    apiSuggestions.unshift(input);
+    apiSuggestions.splice(NUMBER_OF_PREVIOUS_SEARCHES);
+    return browser.storage.local.set ({ apiSuggestions });
+};
